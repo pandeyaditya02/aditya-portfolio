@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Aditya Pandey — Software Engineer & Creative Developer</title>
+  <meta name="description" content="Aditya Pandey is a Software Engineer specialising in backend systems, distributed architecture, and AI-powered applications. Currently at National Australia Bank.">
+  <meta name="keywords" content="Aditya Pandey, Software Engineer, Backend Developer, Java, Spring Boot, Kafka, AI, Next.js, Portfolio">
+  <meta property="og:title" content="Aditya Pandey — Software Engineer & Creative Developer">
+  <meta property="og:description" content="Backend & Distributed Systems Engineer | AI-Powered Applications | Open to full-time roles">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==================== CUSTOM CURSOR ==================== -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- ==================== LOADER ==================== -->
+  <div class="loader" id="loader">
+    <div class="loader__inner">
+      <div class="loader__bar-wrap">
+        <div class="loader__bar" id="loader-bar"></div>
+      </div>
+      <span class="loader__name">Aditya Pandey</span>
+      <span class="loader__percent" id="loader-percent">0%</span>
+    </div>
+  </div>
+
+  <!-- ==================== NAVIGATION ==================== -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__logo">
+      <a href="#hero" id="nav-logo-link" aria-label="Back to top">
+        <span class="nav__logo-text">AP</span>
+        <div class="nav__logo-glow"></div>
+      </a>
+    </div>
+    <button class="nav__menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+      <span class="nav__menu-lines">
+        <span class="line line--1"></span>
+        <span class="line line--2"></span>
+        <span class="line line--3"></span>
+      </span>
+    </button>
+    <div class="nav__menu" id="nav-menu" role="dialog" aria-modal="true">
+      <div class="nav__menu-bg"></div>
+      <ul class="nav__links" role="list">
+        <li class="nav__item" style="--i:0"><a class="nav__link" href="#about" id="nav-about">About</a><span class="nav__link-num">01</span></li>
+        <li class="nav__item" style="--i:1"><a class="nav__link" href="#experience" id="nav-experience">Experience</a><span class="nav__link-num">02</span></li>
+        <li class="nav__item" style="--i:2"><a class="nav__link" href="#projects" id="nav-projects">Projects</a><span class="nav__link-num">03</span></li>
+        <li class="nav__item" style="--i:3"><a class="nav__link" href="#skills" id="nav-skills">Skills</a><span class="nav__link-num">04</span></li>
+        <li class="nav__item" style="--i:4"><a class="nav__link" href="#contact" id="nav-contact">Contact</a><span class="nav__link-num">05</span></li>
+      </ul>
+      <div class="nav__social">
+        <a href="https://github.com/pandeyaditya02" target="_blank" rel="noopener" class="nav__social-link" id="social-github">GitHub</a>
+        <a href="https://linkedin.com/in/aditya-pandey-dtu" target="_blank" rel="noopener" class="nav__social-link" id="social-linkedin">LinkedIn</a>
+        <a href="mailto:pandeyaditya032002@gmail.com" class="nav__social-link" id="social-email">Email</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero" id="hero" aria-label="Introduction">
+    <div class="hero__bg">
+      <img src="hero_bg.png" alt="" aria-hidden="true" class="hero__bg-img">
+      <div class="hero__bg-overlay"></div>
+      <canvas class="hero__canvas" id="hero-canvas" aria-hidden="true"></canvas>
+    </div>
+
+    <div class="hero__content">
+      <div class="hero__tag" id="hero-tag">
+        <span class="hero__tag-dot"></span>
+        <span>Available for opportunities</span>
+      </div>
+      <h1 class="hero__title" id="hero-title">
+        <span class="hero__title-line" data-reveal="0">Aditya</span>
+        <span class="hero__title-line" data-reveal="1">Pandey</span>
+      </h1>
+      <p class="hero__subtitle" id="hero-subtitle">
+        Software Engineer — Backend &amp; Distributed Systems<br>
+        <span class="hero__subtitle-accent">AI-Powered Applications</span>
+      </p>
+      <div class="hero__cta" id="hero-cta">
+        <a href="#projects" class="btn btn--primary" id="btn-work">View My Work</a>
+        <a href="mailto:pandeyaditya032002@gmail.com" class="btn btn--ghost" id="btn-hire">Hire Me</a>
+      </div>
+    </div>
+
+    <div class="hero__scroll" id="hero-scroll" aria-hidden="true">
+      <div class="hero__scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+
+    <!-- Floating chips -->
+    <div class="hero__chips" aria-hidden="true">
+      <span class="chip chip--1">Java</span>
+      <span class="chip chip--2">Spring Boot</span>
+      <span class="chip chip--3">Kafka</span>
+      <span class="chip chip--4">Next.js</span>
+      <span class="chip chip--5">AI/RAG</span>
+      <span class="chip chip--6">AWS</span>
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT ==================== -->
+  <section class="about section" id="about" aria-labelledby="about-heading">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__num">01</span>
+        <h2 class="section__title" id="about-heading">About Me</h2>
+      </div>
+      <div class="about__grid">
+        <div class="about__text">
+          <p class="about__lead">
+            I'm a Software Engineer at <em>National Australia Bank</em>, specialising in backend systems, distributed architecture, and AI-powered applications.
+          </p>
+          <p class="about__body">
+            I graduated from <strong>Delhi Technological University</strong> with a B.Tech in Computer Engineering (GPA: 8.15). My work spans high-throughput Kafka pipelines, Java microservices, and full-stack platforms with LLM integration — from reducing bulk insertion time from <strong>8 minutes → 4 seconds</strong> to building RAG pipelines that generate SEO-optimised articles in under 15 seconds.
+          </p>
+          <p class="about__body">
+            I'm passionate about building systems that are not just functional, but <em>elegant</em> — clean architecture, observable code, and experiences that feel alive.
+          </p>
+          <div class="about__actions">
+            <a href="Aditya_Pandey_Resume.pdf" download class="btn btn--primary" id="btn-resume">Download Resume</a>
+          </div>
+        </div>
+        <div class="about__stats">
+          <div class="stat-card" id="stat-1">
+            <span class="stat-card__num">2+</span>
+            <span class="stat-card__label">Years Experience</span>
+          </div>
+          <div class="stat-card" id="stat-2">
+            <span class="stat-card__num">10K+</span>
+            <span class="stat-card__label">Kafka Events / Day</span>
+          </div>
+          <div class="stat-card" id="stat-3">
+            <span class="stat-card__num">40%</span>
+            <span class="stat-card__label">I/O Latency Reduced</span>
+          </div>
+          <div class="stat-card" id="stat-4">
+            <span class="stat-card__num">99.8%</span>
+            <span class="stat-card__label">Message Recovery Rate</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== EXPERIENCE ==================== -->
+  <section class="experience section" id="experience" aria-labelledby="experience-heading">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__num">02</span>
+        <h2 class="section__title" id="experience-heading">Experience</h2>
+      </div>
+
+      <div class="timeline">
+
+        <div class="timeline__item" id="exp-nab">
+          <div class="timeline__dot"></div>
+          <div class="timeline__card">
+            <div class="timeline__card-header">
+              <div>
+                <h3 class="timeline__role">Software Developer</h3>
+                <span class="timeline__company">National Australia Bank</span>
+              </div>
+              <div class="timeline__meta">
+                <span class="timeline__date">Aug 2024 — Present</span>
+                <span class="timeline__location">Gurugram, India</span>
+              </div>
+            </div>
+            <div class="timeline__tags">
+              <span class="tag">Java</span>
+              <span class="tag">Spring Boot</span>
+              <span class="tag">Kafka</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">AWS S3</span>
+            </div>
+            <ul class="timeline__bullets">
+              <li>Optimised database persistence by replacing JPA with JDBC native SQL, reducing bulk insert time <strong>from 8 min → 4 sec</strong>.</li>
+              <li>Upgraded Java 11 → 17 &amp; Spring Boot 2 → 3, remediating 25+ CVEs and reducing I/O latency by <strong>40%</strong>.</li>
+              <li>Reduced test suite execution time by <strong>50%</strong> via WireMock singleton consolidation.</li>
+              <li>Engineered event-driven microservice processing <strong>10K+ daily Kafka events</strong> with idempotent PostgreSQL writes.</li>
+              <li>Built streaming Copy Manager for large exports: 5MB chunks → async S3 upload, peak memory capped at <strong>50MB</strong>.</li>
+              <li>Implemented Kafka error-recovery cron jobs achieving <strong>99.8%</strong> message reliability.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline__item" id="exp-buffercode">
+          <div class="timeline__dot"></div>
+          <div class="timeline__card">
+            <div class="timeline__card-header">
+              <div>
+                <h3 class="timeline__role">Software Developer Intern</h3>
+                <span class="timeline__company">Buffercode</span>
+              </div>
+              <div class="timeline__meta">
+                <span class="timeline__date">Jun 2023 — Aug 2023</span>
+                <span class="timeline__location">Noida, India</span>
+              </div>
+            </div>
+            <div class="timeline__tags">
+              <span class="tag">React</span>
+              <span class="tag">Three.js</span>
+              <span class="tag">Framer Motion</span>
+              <span class="tag">Nivo Charts</span>
+            </div>
+            <ul class="timeline__bullets">
+              <li>Built an interactive 3D web dashboard using React, Three.js, Framer Motion &amp; Context API.</li>
+              <li>Integrated Nivo charts with drag-and-drop, boosting user engagement by <strong>20%</strong>.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline__item" id="exp-dtu">
+          <div class="timeline__dot"></div>
+          <div class="timeline__card">
+            <div class="timeline__card-header">
+              <div>
+                <h3 class="timeline__role">B.Tech Computer Engineering</h3>
+                <span class="timeline__company">Delhi Technological University</span>
+              </div>
+              <div class="timeline__meta">
+                <span class="timeline__date">Dec 2020 — May 2024</span>
+                <span class="timeline__location">Delhi, India</span>
+              </div>
+            </div>
+            <div class="timeline__tags">
+              <span class="tag">GPA: 8.15</span>
+              <span class="tag">DSA</span>
+              <span class="tag">OS</span>
+              <span class="tag">DBMS</span>
+              <span class="tag">Networks</span>
+            </div>
+            <ul class="timeline__bullets">
+              <li>Graduated with GPA of <strong>8.15</strong>. Relevant coursework in DSA, OS, DBMS, Computer Networks.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PROJECTS ==================== -->
+  <section class="projects section" id="projects" aria-labelledby="projects-heading">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__num">03</span>
+        <h2 class="section__title" id="projects-heading">Selected Work</h2>
+      </div>
+
+      <div class="projects__grid">
+
+        <!-- Project 1: Dialogus -->
+        <article class="project-card project-card--featured" id="project-dialogus" aria-label="Dialogus project">
+          <div class="project-card__img-wrap">
+            <img src="dialogus_project.png" alt="Dialogus — AI-Powered Digital Media Platform" class="project-card__img" loading="lazy">
+            <div class="project-card__img-overlay"></div>
+          </div>
+          <div class="project-card__content">
+            <div class="project-card__header">
+              <span class="project-card__num">01</span>
+              <div class="project-card__links">
+                <a href="https://github.com/pandeyaditya02" target="_blank" rel="noopener" class="project-card__link" id="dialogus-github" aria-label="Dialogus GitHub">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                </a>
+                <a href="#" target="_blank" rel="noopener" class="project-card__link project-card__link--arrow" id="dialogus-live" aria-label="Dialogus live site">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-card__title">Dialogus</h3>
+            <p class="project-card__type">Full-Stack Web Platform + AI Integration</p>
+            <p class="project-card__desc">A live digital media platform built from the ground up — including a custom RAG pipeline aggregating 50+ real-time news sources with Jaccard deduplication, a multi-mode Gemini prompt system generating SEO-optimised 500-word articles in <strong>under 15 seconds</strong>, and HMAC-SHA256 secured publishing pipeline.</p>
+            <div class="project-card__tech">
+              <span class="tech-tag">Next.js 15</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">Google Gemini</span>
+              <span class="tech-tag">RAG Pipeline</span>
+              <span class="tech-tag">Imagen 3.0</span>
+              <span class="tech-tag">Sanity CMS</span>
+            </div>
+            <div class="project-card__what">
+              <span class="project-card__what-label">What I built:</span>
+              Full-stack development · RAG pipeline · AI API integration · Responsive UI · SEO optimisation
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: Creative Chauk -->
+        <article class="project-card project-card--featured project-card--reverse" id="project-creative-chauk" aria-label="Creative Chauk project">
+          <div class="project-card__img-wrap">
+            <img src="creative_chauk_project.png" alt="Creative Chauk — Cinematic Production Company Website" class="project-card__img" loading="lazy">
+            <div class="project-card__img-overlay"></div>
+          </div>
+          <div class="project-card__content">
+            <div class="project-card__header">
+              <span class="project-card__num">02</span>
+              <div class="project-card__links">
+                <a href="https://github.com/pandeyaditya02" target="_blank" rel="noopener" class="project-card__link" id="cc-github" aria-label="Creative Chauk GitHub">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                </a>
+                <a href="#" target="_blank" rel="noopener" class="project-card__link project-card__link--arrow" id="cc-live" aria-label="Creative Chauk live site">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-card__title">Creative Chauk</h3>
+            <p class="project-card__type">Creative Production Company Website</p>
+            <p class="project-card__desc">A cinematic production company website built for a real client. High-impact visual experience — advanced animations, smooth transitions, and a bold layout that reflects the brand's creative identity. Fully responsive and performance-optimised.</p>
+            <div class="project-card__tech">
+              <span class="tech-tag">Next.js</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">GSAP</span>
+              <span class="tech-tag">Framer Motion</span>
+              <span class="tech-tag">CSS Animations</span>
+            </div>
+            <div class="project-card__what">
+              <span class="project-card__what-label">What I built:</span>
+              UI/UX design · Advanced animations · Responsive development · Performance optimisation
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3: DTU Estate -->
+        <article class="project-card project-card--mini" id="project-dtu-estate" aria-label="DTU Estate project">
+          <div class="project-card__mini-content">
+            <span class="project-card__num">03</span>
+            <h3 class="project-card__title">DTU Estate</h3>
+            <p class="project-card__type">MERN Stack Real Estate App</p>
+            <p class="project-card__desc">Full-stack property listing platform with Redux Toolkit, JWT auth, Google OAuth, and Firebase Storage. Serves 30+ daily active users with a responsive UI reducing housing search time by 40%.</p>
+            <div class="project-card__tech">
+              <span class="tech-tag">MongoDB</span>
+              <span class="tech-tag">Express.js</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Redux</span>
+              <span class="tech-tag">Firebase</span>
+            </div>
+            <div class="project-card__links project-card__links--bottom">
+              <a href="https://github.com/pandeyaditya02" target="_blank" rel="noopener" class="btn btn--ghost btn--sm" id="dtu-github">GitHub ↗</a>
+              <a href="#" target="_blank" rel="noopener" class="btn btn--ghost btn--sm" id="dtu-live">Live ↗</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SKILLS ==================== -->
+  <section class="skills section" id="skills" aria-labelledby="skills-heading">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__num">04</span>
+        <h2 class="section__title" id="skills-heading">Technical Skills</h2>
+      </div>
+      <div class="skills__grid">
+
+        <div class="skill-group" id="skills-languages">
+          <h3 class="skill-group__title">
+            <span class="skill-group__icon">⌨</span>
+            Languages
+          </h3>
+          <div class="skill-tags">
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">TypeScript</span>
+          </div>
+        </div>
+
+        <div class="skill-group" id="skills-backend">
+          <h3 class="skill-group__title">
+            <span class="skill-group__icon">⚙</span>
+            Backend &amp; Data
+          </h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Spring Boot</span>
+            <span class="skill-tag">Kafka</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Express</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">JUnit</span>
+            <span class="skill-tag">Mockito</span>
+            <span class="skill-tag">WireMock</span>
+          </div>
+        </div>
+
+        <div class="skill-group" id="skills-ai">
+          <h3 class="skill-group__title">
+            <span class="skill-group__icon">✦</span>
+            AI/LLM &amp; Frontend
+          </h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Google Gemini</span>
+            <span class="skill-tag">RAG</span>
+            <span class="skill-tag">Prompt Engineering</span>
+            <span class="skill-tag">Imagen 3.0</span>
+            <span class="skill-tag">Next.js</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Tailwind CSS</span>
+          </div>
+        </div>
+
+        <div class="skill-group" id="skills-devops">
+          <h3 class="skill-group__title">
+            <span class="skill-group__icon">☁</span>
+            DevOps &amp; Tools
+          </h3>
+          <div class="skill-tags">
+            <span class="skill-tag">AWS S3</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Harness CI/CD</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Sanity CMS</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT ==================== -->
+  <section class="contact section" id="contact" aria-labelledby="contact-heading">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__num">05</span>
+        <h2 class="section__title" id="contact-heading">Get in Touch</h2>
+      </div>
+      <div class="contact__inner">
+        <div class="contact__tagline">
+          <p>Open to full-time roles, freelance projects, and interesting conversations.</p>
+        </div>
+        <a href="mailto:pandeyaditya032002@gmail.com" class="contact__email" id="contact-email-link">
+          <span class="contact__email-text">pandeyaditya032002@gmail.com</span>
+          <span class="contact__email-arrow">↗</span>
+        </a>
+        <div class="contact__socials">
+          <a href="https://github.com/pandeyaditya02" target="_blank" rel="noopener" class="contact__social-btn" id="contact-github">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            GitHub
+          </a>
+          <a href="https://linkedin.com/in/aditya-pandey-dtu" target="_blank" rel="noopener" class="contact__social-btn" id="contact-linkedin">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+          <a href="tel:+919625218876" class="contact__social-btn" id="contact-phone">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 15.92z"/></svg>
+            +91 96252 18876
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <span class="footer__copy">© 2026 Aditya Pandey. Crafted with care.</span>
+        <span class="footer__built">Built with HTML, CSS &amp; JS</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

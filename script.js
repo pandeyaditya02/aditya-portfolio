@@ -200,36 +200,45 @@
   }
 
   /* ─── SCROLL REVEAL ───────────────────────────────────────────── */
-  function addRevealClasses() {
-    const sections = [
-      '.about__text', '.about__lead', '.about__body', '.about__actions',
-      '.stat-card', '.timeline__item', '.timeline__card',
-      '.project-card--featured', '.project-card--mini',
-      '.skill-group', '.contact__tagline', '.contact__email', '.contact__socials',
-      '.section__header',
-    ];
-    sections.forEach(sel => {
-      document.querySelectorAll(sel).forEach((el, i) => {
-        el.classList.add('reveal');
-        if (i === 1) el.classList.add('reveal-delay-1');
-        if (i === 2) el.classList.add('reveal-delay-2');
-        if (i === 3) el.classList.add('reveal-delay-3');
+  // Feature-detect CSS Scroll-Driven Animations (Chrome 115+, Edge 115+)
+  // If supported, CSS animation-timeline: view() handles everything and
+  // reverses on scroll-up automatically — no JS needed.
+  // If NOT supported (Firefox, Safari), fall back to IntersectionObserver.
+  const supportsScrollDriven = CSS.supports('animation-timeline', 'view()');
+
+  if (!supportsScrollDriven) {
+    // ── Fallback: one-shot IntersectionObserver reveal ──────────────
+    function addRevealClasses() {
+      const selectors = [
+        '.about__text', '.about__lead', '.about__body', '.about__actions',
+        '.stat-card', '.timeline__item', '.timeline__card',
+        '.project-card--featured', '.project-card--mini',
+        '.skill-group', '.contact__tagline', '.contact__email', '.contact__socials',
+        '.section__header',
+      ];
+      selectors.forEach(sel => {
+        document.querySelectorAll(sel).forEach((el, i) => {
+          el.classList.add('reveal');
+          if (i === 1) el.classList.add('reveal-delay-1');
+          if (i === 2) el.classList.add('reveal-delay-2');
+          if (i === 3) el.classList.add('reveal-delay-3');
+        });
       });
-    });
+    }
+
+    addRevealClasses();
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target); // one-shot; CSS version reverses
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
   }
-
-  addRevealClasses();
-
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
-
-  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
   /* ─── SMOOTH SCROLL ───────────────────────────────────────────── */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {

@@ -754,3 +754,189 @@ body.cursor-text .cursor-follower { opacity: 0; }
   .btn { width: 100%; justify-content: center; }
   .about__stats { grid-template-columns: 1fr; }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   SCROLL-DRIVEN ANIMATIONS
+   ─ animation-timeline: view()  → scrubs with element viewport pos
+   ─ animation-timeline: scroll() → scrubs with page scroll pos
+   ─ Both reverse on scroll-up automatically (no JS needed)
+   ─ Fallback: JS IntersectionObserver runs in non-supporting browsers
+═══════════════════════════════════════════════════════════════ */
+
+/* ── Nav scroll-progress bar (base styles) ──────────────────── */
+.nav__progress {
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-cyan));
+  transform-origin: left center;
+  scale: 0 1;                      /* hidden by default */
+  pointer-events: none;
+}
+
+/* ── Keyframes ──────────────────────────────────────────────── */
+
+/* Generic up-reveal  */
+@keyframes sda-fade-up {
+  from { opacity: 0; translate: 0 56px; }
+  to   { opacity: 1; translate: 0 0;   }
+}
+/* Slide from left */
+@keyframes sda-fade-right {
+  from { opacity: 0; translate: -48px 0; }
+  to   { opacity: 1; translate: 0 0;    }
+}
+/* Scale + fade for cards */
+@keyframes sda-scale-in {
+  from { opacity: 0; scale: 0.84; filter: blur(6px); }
+  to   { opacity: 1; scale: 1;    filter: blur(0);   }
+}
+/* Hero content exits as user scrolls past */
+@keyframes sda-hero-exit {
+  from { opacity: 1; translate: 0 0;     }
+  to   { opacity: 0; translate: 0 -72px; }
+}
+/* Timeline vertical line draws itself */
+@keyframes sda-line-grow {
+  from { scale: 1 0; }
+  to   { scale: 1 1; }
+}
+/* Section number pops in */
+@keyframes sda-num-pop {
+  from { opacity: 0; scale: 0.6; translate: 0 12px; }
+  to   { opacity: 1; scale: 1;   translate: 0 0;    }
+}
+/* Read-progress bar grows left→right */
+@keyframes sda-progress {
+  from { scale: 0 1; }
+  to   { scale: 1 1; }
+}
+
+/* ── Core @supports block ────────────────────────────────────── */
+@supports (animation-timeline: view()) {
+
+  /* ── 1. Disable JS-powered reveal classes ───────────────────
+     The CSS animations below handle opacity & transform instead  */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .reveal.visible {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* ── 2. Nav read-progress (scroll-based, not view-based) ─── */
+  .nav__progress {
+    animation: sda-progress linear both;
+    animation-timeline: scroll(root block);
+  }
+
+  /* ── 3. Hero content — fades out as you scroll past the fold  */
+  .hero__content {
+    animation: sda-hero-exit linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0px 520px;
+  }
+
+  /* ── 4. Timeline vertical line — draws as you read through it */
+  .timeline::before {
+    transform-origin: top center;
+    animation: sda-line-grow linear both;
+    animation-timeline: view();
+    /* entry 0% = element top crosses viewport bottom
+       exit  0% = element top reaches viewport top      */
+    animation-range: entry 0% exit 0%;
+  }
+
+  /* ── 5. Section headers ─────────────────────────────────────  */
+  .section__num {
+    animation: sda-num-pop ease-out both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 18%;
+  }
+  .section__title {
+    animation: sda-fade-right ease-out both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 22%;
+  }
+
+  /* ── 6. About text stagger ──────────────────────────────────  */
+  .about__lead {
+    animation: sda-fade-up ease-out both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 26%;
+  }
+  /* nth-of-type only works within the same parent scope here;
+     give each body paragraph a slight offset via range start    */
+  .about__body {
+    animation: sda-fade-up ease-out both;
+    animation-timeline: view();
+  }
+  .about__body:nth-of-type(1) { animation-range: entry  5% cover 30%; }
+  .about__body:nth-of-type(2) { animation-range: entry 10% cover 35%; }
+  .about__actions {
+    animation: sda-fade-up ease-out both;
+    animation-timeline: view();
+    animation-range: entry 15% cover 38%;
+  }
+
+  /* ── 7. Stat cards — staggered scale-in ─────────────────────  */
+  .stat-card {
+    animation: sda-scale-in ease-out both;
+    animation-timeline: view();
+  }
+  .stat-card:nth-child(1) { animation-range: entry  0% cover 22%; }
+  .stat-card:nth-child(2) { animation-range: entry  6% cover 28%; }
+  .stat-card:nth-child(3) { animation-range: entry 12% cover 34%; }
+  .stat-card:nth-child(4) { animation-range: entry 18% cover 40%; }
+
+  /* ── 8. Timeline items — slide from left ────────────────────  */
+  .timeline__item {
+    animation: sda-fade-right ease-out both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 28%;
+  }
+
+  /* ── 9. Project cards ───────────────────────────────────────  */
+  .project-card--featured {
+    animation: sda-fade-up ease-out both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 32%;
+  }
+  .project-card--mini {
+    animation: sda-scale-in ease-out both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 28%;
+  }
+
+  /* ── 10. Skill groups — staggered scale-in ──────────────────  */
+  .skill-group {
+    animation: sda-scale-in ease-out both;
+    animation-timeline: view();
+  }
+  .skill-group:nth-child(1) { animation-range: entry  0% cover 24%; }
+  .skill-group:nth-child(2) { animation-range: entry  6% cover 30%; }
+  .skill-group:nth-child(3) { animation-range: entry 12% cover 36%; }
+  .skill-group:nth-child(4) { animation-range: entry 18% cover 42%; }
+
+  /* ── 11. Contact section ────────────────────────────────────  */
+  .contact__tagline {
+    animation: sda-fade-up ease-out both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 26%;
+  }
+  .contact__email {
+    animation: sda-fade-up ease-out both;
+    animation-timeline: view();
+    animation-range: entry 6% cover 32%;
+  }
+  .contact__socials {
+    animation: sda-fade-up ease-out both;
+    animation-timeline: view();
+    animation-range: entry 12% cover 38%;
+  }
+
+} /* end @supports */
+

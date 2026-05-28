@@ -776,35 +776,35 @@ body.cursor-text .cursor-follower { opacity: 0; }
 
 /* ── Keyframes ──────────────────────────────────────────────── */
 
-/* Generic up-reveal  */
+/* Generic up-reveal — reduced distance for a softer entry */
 @keyframes sda-fade-up {
-  from { opacity: 0; translate: 0 56px; }
+  from { opacity: 0; translate: 0 36px; }
   to   { opacity: 1; translate: 0 0;   }
 }
-/* Slide from left */
+/* Slide from left — gentler travel */
 @keyframes sda-fade-right {
-  from { opacity: 0; translate: -48px 0; }
+  from { opacity: 0; translate: -32px 0; }
   to   { opacity: 1; translate: 0 0;    }
 }
-/* Scale + fade for cards */
+/* Scale + fade — subtle scale, very light blur */
 @keyframes sda-scale-in {
-  from { opacity: 0; scale: 0.84; filter: blur(6px); }
+  from { opacity: 0; scale: 0.92; filter: blur(3px); }
   to   { opacity: 1; scale: 1;    filter: blur(0);   }
 }
 /* Hero content exits as user scrolls past */
 @keyframes sda-hero-exit {
   from { opacity: 1; translate: 0 0;     }
-  to   { opacity: 0; translate: 0 -72px; }
+  to   { opacity: 0; translate: 0 -48px; }
 }
 /* Timeline vertical line draws itself */
 @keyframes sda-line-grow {
   from { scale: 1 0; }
   to   { scale: 1 1; }
 }
-/* Section number pops in */
+/* Section number pops in — less aggressive scale */
 @keyframes sda-num-pop {
-  from { opacity: 0; scale: 0.6; translate: 0 12px; }
-  to   { opacity: 1; scale: 1;   translate: 0 0;    }
+  from { opacity: 0; scale: 0.75; translate: 0 10px; }
+  to   { opacity: 1; scale: 1;    translate: 0 0;    }
 }
 /* Read-progress bar grows left→right */
 @keyframes sda-progress {
@@ -852,90 +852,88 @@ body.cursor-text .cursor-follower { opacity: 0; }
 
   /* ── 5. Section headers ─────────────────────────────────────  */
   .section__num {
-    animation: sda-num-pop ease-out both;
+    animation: sda-num-pop cubic-bezier(0.25, 0.8, 0.25, 1) both;
     animation-timeline: view();
-    animation-range: entry 0% cover 18%;
+    animation-range: entry 10% cover 45%;
   }
   .section__title {
-    animation: sda-fade-right ease-out both;
+    animation: sda-fade-right cubic-bezier(0.25, 0.8, 0.25, 1) both;
     animation-timeline: view();
-    animation-range: entry 0% cover 22%;
+    animation-range: entry 8% cover 48%;
   }
 
   /* ── 6. About text stagger ──────────────────────────────────  */
   .about__lead {
-    animation: sda-fade-up ease-out both;
+    animation: sda-fade-up cubic-bezier(0.25, 0.8, 0.25, 1) both;
     animation-timeline: view();
-    animation-range: entry 0% cover 26%;
+    animation-range: entry 8% cover 52%;
   }
-  /* nth-of-type only works within the same parent scope here;
-     give each body paragraph a slight offset via range start    */
   .about__body {
-    animation: sda-fade-up ease-out both;
+    animation: sda-fade-up cubic-bezier(0.25, 0.8, 0.25, 1) both;
     animation-timeline: view();
   }
-  .about__body:nth-of-type(1) { animation-range: entry  5% cover 30%; }
-  .about__body:nth-of-type(2) { animation-range: entry 10% cover 35%; }
+  .about__body:nth-of-type(1) { animation-range: entry 10% cover 55%; }
+  .about__body:nth-of-type(2) { animation-range: entry 14% cover 60%; }
   .about__actions {
-    animation: sda-fade-up ease-out both;
+    animation: sda-fade-up cubic-bezier(0.25, 0.8, 0.25, 1) both;
     animation-timeline: view();
-    animation-range: entry 15% cover 38%;
+    animation-range: entry 18% cover 62%;
   }
 
   /* ── 7. Stat cards — staggered scale-in ─────────────────────  */
   .stat-card {
-    animation: sda-scale-in ease-out both;
+    animation: sda-scale-in cubic-bezier(0.25, 0.8, 0.25, 1) both;
     animation-timeline: view();
   }
-  .stat-card:nth-child(1) { animation-range: entry  0% cover 22%; }
-  .stat-card:nth-child(2) { animation-range: entry  6% cover 28%; }
-  .stat-card:nth-child(3) { animation-range: entry 12% cover 34%; }
-  .stat-card:nth-child(4) { animation-range: entry 18% cover 40%; }
+  .stat-card:nth-child(1) { animation-range: entry  8% cover 50%; }
+  .stat-card:nth-child(2) { animation-range: entry 14% cover 56%; }
+  .stat-card:nth-child(3) { animation-range: entry 20% cover 62%; }
+  .stat-card:nth-child(4) { animation-range: entry 26% cover 68%; }
 
   /* ── 8. Timeline items — slide from left ────────────────────  */
   .timeline__item {
-    animation: sda-fade-right ease-out both;
+    animation: sda-fade-right cubic-bezier(0.25, 0.8, 0.25, 1) both;
     animation-timeline: view();
-    animation-range: entry 0% cover 28%;
+    animation-range: entry 8% cover 55%;
   }
 
   /* ── 9. Project cards ───────────────────────────────────────  */
   .project-card--featured {
-    animation: sda-fade-up ease-out both;
+    animation: sda-fade-up cubic-bezier(0.25, 0.8, 0.25, 1) both;
     animation-timeline: view();
-    animation-range: entry 0% cover 32%;
+    animation-range: entry 5% cover 55%;
   }
   .project-card--mini {
-    animation: sda-scale-in ease-out both;
+    animation: sda-scale-in cubic-bezier(0.25, 0.8, 0.25, 1) both;
     animation-timeline: view();
-    animation-range: entry 0% cover 28%;
+    animation-range: entry 8% cover 52%;
   }
 
   /* ── 10. Skill groups — staggered scale-in ──────────────────  */
   .skill-group {
-    animation: sda-scale-in ease-out both;
+    animation: sda-scale-in cubic-bezier(0.25, 0.8, 0.25, 1) both;
     animation-timeline: view();
   }
-  .skill-group:nth-child(1) { animation-range: entry  0% cover 24%; }
-  .skill-group:nth-child(2) { animation-range: entry  6% cover 30%; }
-  .skill-group:nth-child(3) { animation-range: entry 12% cover 36%; }
-  .skill-group:nth-child(4) { animation-range: entry 18% cover 42%; }
+  .skill-group:nth-child(1) { animation-range: entry  8% cover 50%; }
+  .skill-group:nth-child(2) { animation-range: entry 14% cover 56%; }
+  .skill-group:nth-child(3) { animation-range: entry 20% cover 62%; }
+  .skill-group:nth-child(4) { animation-range: entry 26% cover 68%; }
 
   /* ── 11. Contact section ────────────────────────────────────  */
   .contact__tagline {
-    animation: sda-fade-up ease-out both;
+    animation: sda-fade-up cubic-bezier(0.25, 0.8, 0.25, 1) both;
     animation-timeline: view();
-    animation-range: entry 0% cover 26%;
+    animation-range: entry 8% cover 52%;
   }
   .contact__email {
-    animation: sda-fade-up ease-out both;
+    animation: sda-fade-up cubic-bezier(0.25, 0.8, 0.25, 1) both;
     animation-timeline: view();
-    animation-range: entry 6% cover 32%;
+    animation-range: entry 14% cover 58%;
   }
   .contact__socials {
-    animation: sda-fade-up ease-out both;
+    animation: sda-fade-up cubic-bezier(0.25, 0.8, 0.25, 1) both;
     animation-timeline: view();
-    animation-range: entry 12% cover 38%;
+    animation-range: entry 20% cover 64%;
   }
 
 } /* end @supports */

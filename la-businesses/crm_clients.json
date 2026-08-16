@@ -1,0 +1,92 @@
+[
+  {
+    "Business Name": "El Pique Taquería",
+    "Owner Name": "Hernandez Family",
+    "Phone": "3235550187",
+    "Email": "hola@elpiquetaqueria.com",
+    "Instagram": "@elpiquetaqueria",
+    "Live Preview URL": "https://pandeyaditya02.github.io/01-el-pique-taqueria/",
+    "Status": "Not Contacted"
+  },
+  {
+    "Business Name": "Ruben's Auto Repair",
+    "Owner Name": "Ruben Morales",
+    "Phone": "3235550294",
+    "Email": "ruben@rubensautorepair.com",
+    "Instagram": "@rubensautorepair",
+    "Live Preview URL": "https://pandeyaditya02.github.io/02-rubens-auto-repair/",
+    "Status": "Not Contacted"
+  },
+  {
+    "Business Name": "Golden Shears Barbershop",
+    "Owner Name": "Carlos 'Charlie' Vega",
+    "Phone": "+12135550341",
+    "Email": "info@goldenshears.com",
+    "Instagram": "@goldenshearsla",
+    "Live Preview URL": "https://pandeyaditya02.github.io/03-golden-shears-barbershop/",
+    "Status": "Not Contacted"
+  },
+  {
+    "Business Name": "Sunny's Coin Laundry",
+    "Owner Name": "Kim Family",
+    "Phone": "+12135550478",
+    "Email": "hello@sunnyscoinlaundry.com",
+    "Instagram": "@sunnyscoinlaundry",
+    "Live Preview URL": "https://pandeyaditya02.github.io/04-sunnys-coin-laundry/",
+    "Status": "Not Contacted"
+  },
+  {
+    "Business Name": "Rosa's Flower Garden",
+    "Owner Name": "Rosa Delgado",
+    "Phone": "+13235550562",
+    "Email": "hello@rosasflowergarden.com",
+    "Instagram": "@rosasflowergarden",
+    "Live Preview URL": "https://pandeyaditya02.github.io/05-rosas-flower-garden/",
+    "Status": "Not Contacted"
+  },
+  {
+    "Business Name": "Lucky Nails & Spa",
+    "Owner Name": "Linh & Mai Nguyen",
+    "Phone": "+13235550619",
+    "Email": "hello@luckynailsspa.com",
+    "Instagram": "@luckynailsla",
+    "Live Preview URL": "https://pandeyaditya02.github.io/06-lucky-nails-spa/",
+    "Status": "Not Contacted"
+  },
+  {
+    "Business Name": "Mike's Plumbing Solutions",
+    "Owner Name": "Mike Thompson",
+    "Phone": "8185550735",
+    "Email": "info@mikesplumbingsolutions.com",
+    "Instagram": "@mikesplumbingla",
+    "Live Preview URL": "https://pandeyaditya02.github.io/07-mikes-plumbing/",
+    "Status": "Not Contacted"
+  },
+  {
+    "Business Name": "El Gallo Bakery",
+    "Owner Name": "Espinoza Family",
+    "Phone": "3232635528",
+    "Email": "info@elgallobakery.com",
+    "Instagram": "@elgallobakery",
+    "Live Preview URL": "https://pandeyaditya02.github.io/08-la-abuela-bakery/",
+    "Status": "Not Contacted"
+  },
+  {
+    "Business Name": "Zen Garden Massage",
+    "Owner Name": "Elena Sato",
+    "Phone": "3235550953",
+    "Email": "hello@zengardenmassage.com",
+    "Instagram": "@zengardenla",
+    "Live Preview URL": "https://pandeyaditya02.github.io/09-zen-garden-massage/",
+    "Status": "Not Contacted"
+  },
+  {
+    "Business Name": "Paws & Claws Pet Grooming",
+    "Owner Name": "Amanda Chen",
+    "Phone": "3105551047",
+    "Email": "woof@pawsandclawsgrooming.com",
+    "Instagram": "@pawsclawsgrooming",
+    "Live Preview URL": "https://pandeyaditya02.github.io/10-paws-claws-grooming/",
+    "Status": "Not Contacted"
+  }
+]

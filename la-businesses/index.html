@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional websites built for 10 local Los Angeles businesses. Browse our portfolio of stunning small business websites.">
+    <title>LA Local Business Websites | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0A0A0F;
+            --bg-secondary: #12121A;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --text-primary: #F0F0F5;
+            --text-secondary: #8A8A9A;
+            --accent-1: #FF6B6B;
+            --accent-2: #4ECDC4;
+            --accent-3: #FFE66D;
+            --accent-4: #A78BFA;
+            --accent-5: #F472B6;
+            --border: rgba(255, 255, 255, 0.06);
+            --glow: rgba(78, 205, 196, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Animated background */
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        .bg-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .bg-glow-1 {
+            top: -200px;
+            right: -100px;
+            background: var(--accent-2);
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .bg-glow-2 {
+            bottom: -200px;
+            left: -100px;
+            background: var(--accent-4);
+            animation: float 18s ease-in-out infinite reverse;
+        }
+
+        .bg-glow-3 {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: var(--accent-1);
+            opacity: 0.05;
+            animation: pulse 10s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(30px, -30px); }
+            50% { transform: translate(-20px, 20px); }
+            75% { transform: translate(20px, 30px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.05; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.08; transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header / Hero */
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 24px 80px;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            background: rgba(78, 205, 196, 0.1);
+            border: 1px solid rgba(78, 205, 196, 0.2);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--accent-2);
+            margin-bottom: 32px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .hero-badge span {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--accent-2);
+            border-radius: 50%;
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -1.5px;
+            animation: fadeInUp 0.8s ease-out 0.1s both;
+        }
+
+        h1 .gradient-text {
+            background: linear-gradient(135deg, var(--accent-2), var(--accent-4), var(--accent-5));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 48px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-2), var(--accent-3));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Section header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Business Cards Grid */
+        .businesses-section {
+            padding: 40px 0 120px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 24px;
+        }
+
+        .business-card {
+            position: relative;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .business-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .business-card:hover {
+            border-color: rgba(255, 255, 255, 0.12);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-banner {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-banner::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(to top, var(--bg-primary), transparent);
+            z-index: 1;
+        }
+
+        .card-banner-bg {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+        }
+
+        .card-banner-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0.15;
+            background-size: 30px 30px;
+        }
+
+        .card-number {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            z-index: 2;
+        }
+
+        .card-type-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            padding: 6px 14px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            z-index: 2;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .card-content {
+            padding: 20px 28px 28px;
+        }
+
+        .card-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            letter-spacing: -0.3px;
+        }
+
+        .card-location {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+        }
+
+        .card-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+        }
+
+        .card-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .card-tag {
+            padding: 4px 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .card-arrow {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .business-card:hover .card-arrow {
+            background: var(--accent-2);
+            color: var(--bg-primary);
+            transform: translateX(4px);
+        }
+
+        /* Individual card color themes */
+        .card-theme-1 .card-banner-bg { background: linear-gradient(135deg, #8B1A1A, #D4A017, #3E2723); }
+        .card-theme-2 .card-banner-bg { background: linear-gradient(135deg, #1C1C1E, #FF6B2B, #0D1B2A); }
+        .card-theme-3 .card-banner-bg { background: linear-gradient(135deg, #0A0A0A, #C9A84C, #2C1810); }
+        .card-theme-4 .card-banner-bg { background: linear-gradient(135deg, #1A365D, #4DA8DA, #FFD93D); }
+        .card-theme-5 .card-banner-bg { background: linear-gradient(135deg, #4A1942, #E8A0BF, #6B8F71); }
+        .card-theme-6 .card-banner-bg { background: linear-gradient(135deg, #2D2D2D, #B8A9C9, #F2D7D5); }
+        .card-theme-7 .card-banner-bg { background: linear-gradient(135deg, #0B2545, #B87333, #1B2A3D); }
+        .card-theme-8 .card-banner-bg { background: linear-gradient(135deg, #3E2723, #C4704B, #CC5500); }
+        .card-theme-9 .card-banner-bg { background: linear-gradient(135deg, #2D2D2D, #7D9B76, #C4B5A0); }
+        .card-theme-10 .card-banner-bg { background: linear-gradient(135deg, #264653, #2EC4B6, #FF6B6B); }
+
+        .card-theme-1 .card-type-badge { color: #FFD93D; }
+        .card-theme-2 .card-type-badge { color: #FF6B2B; }
+        .card-theme-3 .card-type-badge { color: #C9A84C; }
+        .card-theme-4 .card-type-badge { color: #4DA8DA; }
+        .card-theme-5 .card-type-badge { color: #E8A0BF; }
+        .card-theme-6 .card-type-badge { color: #B8A9C9; }
+        .card-theme-7 .card-type-badge { color: #B87333; }
+        .card-theme-8 .card-type-badge { color: #C4704B; }
+        .card-theme-9 .card-type-badge { color: #7D9B76; }
+        .card-theme-10 .card-type-badge { color: #2EC4B6; }
+
+        .card-theme-1 .card-banner-bg::before { background-image: radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px); }
+        .card-theme-2 .card-banner-bg::before { background-image: linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.1) 75%); }
+        .card-theme-3 .card-banner-bg::before { background-image: repeating-linear-gradient(0deg, transparent, transparent 14px, rgba(255,255,255,0.1) 14px, rgba(255,255,255,0.1) 15px); }
+        .card-theme-4 .card-banner-bg::before { background-image: radial-gradient(circle, rgba(255,255,255,0.15) 2px, transparent 2px); background-size: 20px 20px; }
+        .card-theme-5 .card-banner-bg::before { background-image: radial-gradient(ellipse, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 16px 16px; }
+        .card-theme-6 .card-banner-bg::before { background-image: linear-gradient(135deg, rgba(255,255,255,0.08) 25%, transparent 25%); }
+        .card-theme-7 .card-banner-bg::before { background-image: repeating-linear-gradient(90deg, transparent, transparent 19px, rgba(255,255,255,0.08) 19px, rgba(255,255,255,0.08) 20px); }
+        .card-theme-8 .card-banner-bg::before { background-image: radial-gradient(circle, rgba(255,255,255,0.12) 1.5px, transparent 1.5px); background-size: 24px 24px; }
+        .card-theme-9 .card-banner-bg::before { background-image: linear-gradient(60deg, rgba(255,255,255,0.05) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.05) 75%); }
+        .card-theme-10 .card-banner-bg::before { background-image: radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px); background-size: 18px 18px; }
+
+        /* Footer */
+        .main-footer {
+            text-align: center;
+            padding: 40px 24px;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .main-footer a {
+            color: var(--accent-2);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 100px 24px 60px;
+                min-height: 50vh;
+            }
+
+            .hero-stats {
+                gap: 32px;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card-banner {
+                height: 160px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-glow bg-glow-3"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-badge">
+                <span></span>
+                Los Angeles Small Business Initiative
+            </div>
+            <h1>Websites for <br><span class="gradient-text">LA's Local Gems</span></h1>
+            <p class="hero-subtitle">
+                Professional, modern websites built for 10 incredible local businesses 
+                across Los Angeles that deserve a digital presence.
+            </p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">Businesses</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Neighborhoods</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">Industries</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Business Cards -->
+        <section class="businesses-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>The Businesses</h2>
+                    <p>Click any card to visit their new website</p>
+                </div>
+
+                <div class="cards-grid">
+                    <!-- Card 1: El Pique Taquería -->
+                    <a href="01-el-pique-taqueria/index.html" class="business-card card-theme-1" id="card-1">
+                        <div class="card-banner">
+                            <div class="card-banner-bg">🌮</div>
+                            <div class="card-number">01</div>
+                            <div class="card-type-badge">Mexican Food</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-name">El Pique Taquería</div>
+                            <div class="card-location">📍 Highland Park, Los Angeles</div>
+                            <p class="card-description">Family-run taquería serving authentic Michoacán-style tacos on York Blvd since 2010. Three generations of recipes.</p>
+                            <div class="card-footer">
+                                <div class="card-tags">
+                                    <span class="card-tag">Family-Owned</span>
+                                    <span class="card-tag">Since 2010</span>
+                                </div>
+                                <div class="card-arrow">→</div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Card 2: Ruben's Auto Repair -->
+                    <a href="02-rubens-auto-repair/index.html" class="business-card card-theme-2" id="card-2">
+                        <div class="card-banner">
+                            <div class="card-banner-bg">🔧</div>
+                            <div class="card-number">02</div>
+                            <div class="card-type-badge">Auto Repair</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-name">Ruben's Auto Repair</div>
+                            <div class="card-location">📍 Boyle Heights, Los Angeles</div>
+                            <p class="card-description">ASE Certified independent mechanic specializing in brakes, transmissions, and general repairs. Honest pricing guaranteed.</p>
+                            <div class="card-footer">
+                                <div class="card-tags">
+                                    <span class="card-tag">ASE Certified</span>
+                                    <span class="card-tag">Since 2005</span>
+                                </div>
+                                <div class="card-arrow">→</div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Card 3: Golden Shears Barbershop -->
+                    <a href="03-golden-shears-barbershop/index.html" class="business-card card-theme-3" id="card-3">
+                        <div class="card-banner">
+                            <div class="card-banner-bg">💈</div>
+                            <div class="card-number">03</div>
+                            <div class="card-type-badge">Barbershop</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-name">Golden Shears Barbershop</div>
+                            <div class="card-location">📍 Echo Park, Los Angeles</div>
+                            <p class="card-description">Old-school craftsmanship meets modern style. Classic cuts, hot towel shaves, and a welcoming vibe. Walk-ins always welcome.</p>
+                            <div class="card-footer">
+                                <div class="card-tags">
+                                    <span class="card-tag">Walk-Ins</span>
+                                    <span class="card-tag">Since 2012</span>
+                                </div>
+                                <div class="card-arrow">→</div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Card 4: Sunny's Coin Laundry -->
+                    <a href="04-sunnys-coin-laundry/index.html" class="business-card card-theme-4" id="card-4">
+                        <div class="card-banner">
+                            <div class="card-banner-bg">🧺</div>
+                            <div class="card-number">04</div>
+                            <div class="card-type-badge">Laundromat</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-name">Sunny's Coin Laundry</div>
+                            <div class="card-location">📍 Koreatown, Los Angeles</div>
+                            <p class="card-description">24/7 self-service laundromat with wash & fold services. 40+ machines, free WiFi, and the Kim family's friendly service since 1998.</p>
+                            <div class="card-footer">
+                                <div class="card-tags">
+                                    <span class="card-tag">24/7 Open</span>
+                                    <span class="card-tag">Since 1998</span>
+                                </div>
+                                <div class="card-arrow">→</div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Card 5: Rosa's Flower Garden -->
+                    <a href="05-rosas-flower-garden/index.html" class="business-card card-theme-5" id="card-5">
+                        <div class="card-banner">
+                            <div class="card-banner-bg">🌸</div>
+                            <div class="card-number">05</div>
+                            <div class="card-type-badge">Florist</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-name">Rosa's Flower Garden</div>
+                            <div class="card-location">📍 Atwater Village, Los Angeles</div>
+                            <p class="card-description">Artisan floral arrangements for weddings, events, and everyday beauty. Every bouquet crafted with love by Rosa and Maria.</p>
+                            <div class="card-footer">
+                                <div class="card-tags">
+                                    <span class="card-tag">Weddings</span>
+                                    <span class="card-tag">Since 2003</span>
+                                </div>
+                                <div class="card-arrow">→</div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Card 6: Lucky Nails & Spa -->
+                    <a href="06-lucky-nails-spa/index.html" class="business-card card-theme-6" id="card-6">
+                        <div class="card-banner">
+                            <div class="card-banner-bg">💅</div>
+                            <div class="card-number">06</div>
+                            <div class="card-type-badge">Nail Salon</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-name">Lucky Nails & Spa</div>
+                            <div class="card-location">📍 Glassell Park, Los Angeles</div>
+                            <p class="card-description">Luxurious nail care by sisters Linh and Mai Nguyen. From classic manicures to intricate nail art, experience true pampering.</p>
+                            <div class="card-footer">
+                                <div class="card-tags">
+                                    <span class="card-tag">Nail Art</span>
+                                    <span class="card-tag">Since 2015</span>
+                                </div>
+                                <div class="card-arrow">→</div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Card 7: Mike's Plumbing Solutions -->
+                    <a href="07-mikes-plumbing/index.html" class="business-card card-theme-7" id="card-7">
+                        <div class="card-banner">
+                            <div class="card-banner-bg">🔩</div>
+                            <div class="card-number">07</div>
+                            <div class="card-type-badge">Plumbing</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-name">Mike's Plumbing Solutions</div>
+                            <div class="card-location">📍 Van Nuys, Los Angeles</div>
+                            <p class="card-description">Veteran-owned plumbing service. Licensed, bonded, and insured with 15+ years experience. 24/7 emergency service available.</p>
+                            <div class="card-footer">
+                                <div class="card-tags">
+                                    <span class="card-tag">24/7 Emergency</span>
+                                    <span class="card-tag">Veteran</span>
+                                </div>
+                                <div class="card-arrow">→</div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Card 8: La Abuela Bakery -->
+                    <a href="08-la-abuela-bakery/index.html" class="business-card card-theme-8" id="card-8">
+                        <div class="card-banner">
+                            <div class="card-banner-bg">🍞</div>
+                            <div class="card-number">08</div>
+                            <div class="card-type-badge">Bakery</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-name">La Abuela Bakery</div>
+                            <div class="card-location">📍 East LA (City Terrace)</div>
+                            <p class="card-description">Traditional Mexican panadería baking Doña Carmen's family recipes from Puebla since 1995. Fresh conchas, pan dulce, and tres leches daily.</p>
+                            <div class="card-footer">
+                                <div class="card-tags">
+                                    <span class="card-tag">Pan Dulce</span>
+                                    <span class="card-tag">Since 1995</span>
+                                </div>
+                                <div class="card-arrow">→</div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Card 9: Zen Garden Massage -->
+                    <a href="09-zen-garden-massage/index.html" class="business-card card-theme-9" id="card-9">
+                        <div class="card-banner">
+                            <div class="card-banner-bg">🧘</div>
+                            <div class="card-number">09</div>
+                            <div class="card-type-badge">Wellness</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-name">Zen Garden Massage</div>
+                            <div class="card-location">📍 Silver Lake, Los Angeles</div>
+                            <p class="card-description">Japanese-inspired massage therapy studio. Elena Sato combines Shiatsu tradition with California wellness for transformative healing.</p>
+                            <div class="card-footer">
+                                <div class="card-tags">
+                                    <span class="card-tag">Shiatsu</span>
+                                    <span class="card-tag">By Appointment</span>
+                                </div>
+                                <div class="card-arrow">→</div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Card 10: Paws & Claws Pet Grooming -->
+                    <a href="10-paws-claws-grooming/index.html" class="business-card card-theme-10" id="card-10">
+                        <div class="card-banner">
+                            <div class="card-banner-bg">🐾</div>
+                            <div class="card-number">10</div>
+                            <div class="card-type-badge">Pet Grooming</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-name">Paws & Claws Pet Grooming</div>
+                            <div class="card-location">📍 Culver City, Los Angeles</div>
+                            <p class="card-description">Stress-free, personalized grooming for dogs and cats. Breed-specific cuts, organic products, and anxious pet specialists.</p>
+                            <div class="card-footer">
+                                <div class="card-tags">
+                                    <span class="card-tag">Dogs & Cats</span>
+                                    <span class="card-tag">Since 2019</span>
+                                </div>
+                                <div class="card-arrow">→</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>Built with ❤️ for LA's local businesses &mdash; 2026</p>
+    </footer>
+
+    <script>
+        // Scroll reveal animation for business cards
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Add staggered delay based on card position
+                    const card = entry.target;
+                    const cardIndex = Array.from(document.querySelectorAll('.business-card')).indexOf(card);
+                    setTimeout(() => {
+                        card.classList.add('visible');
+                    }, cardIndex * 100);
+                    observer.unobserve(card);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        document.querySelectorAll('.business-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Parallax effect on glow elements
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+
+            document.querySelector('.bg-glow-1').style.transform = `translate(${x * 30}px, ${y * 30}px)`;
+            document.querySelector('.bg-glow-2').style.transform = `translate(${-x * 20}px, ${-y * 20}px)`;
+        });
+    </script>
+</body>
+</html>
